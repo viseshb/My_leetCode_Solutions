@@ -1,3 +1,9 @@
+class ListNode:
+    def __init__(self,value):
+        self.value = value
+        self.next= None
+
+
 def reverse(self, head: ListNode):
     prev = None
     current = head
