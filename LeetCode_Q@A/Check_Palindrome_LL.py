@@ -27,5 +27,4 @@ class Solution:
                 return False
             head = head.next
             rev = rev.next
-        return True    
-            
+        return True              
