@@ -133,41 +133,52 @@ class DoublyLinkedList:
         return True
     
 
-    def delete(self,index):
+    def remove(self,index):
+        
+    # Validate the index
         if index < 0 or index >= self.length:
-            return False
-        if index == 1:
+            return None
+
+    # If there's only one node, remove it and return it
+        if self.length == 1:
+            temp = self.head
             self.head = None
             self.tail = None
-            self.length -=1
-            return True
-        if index ==0:
-            temp = self.head.next
-            self.head.prev = None
-            self.head.next = None
-            self.head = temp
-            self.length -=1
-            return True
-          
-        if index == self.length -1:
-            temp = self.tail.prev
-            temp.next = None
-            self.tail.prev = None
-            self.tail = temp
-            self.length-=1
-            return True    
-        
-        temp = self.head
+            self.length -= 1
+            return temp
 
+    # Remove from the beginning (head)
+        if index == 0:
+            temp = self.head
+            self.head = self.head.next
+            self.head.prev = None
+            temp.next = None  # Clear the pointer of removed node
+            self.length -= 1
+            return temp
+
+    # Remove from the end (tail)
+        if index == self.length - 1:
+            temp = self.tail
+            self.tail = self.tail.prev
+            self.tail.next = None
+            temp.prev = None  # Clear the pointer of removed node
+            self.length -= 1
+            return temp
+
+    # Remove from the middle
+        temp = self.head
         for _ in range(index):
             temp = temp.next
 
+    # Bypass the node to be removed
         temp.prev.next = temp.next
         temp.next.prev = temp.prev
+    # Clean up the removed node's pointers
         temp.next = None
         temp.prev = None
-        self.length-=1
-        return True    
+
+        self.length -= 1
+        return temp 
       
 
 my_doubly_LL = DoublyLinkedList(7)
