@@ -18,4 +18,6 @@ class Solution:
             num = num*2 + current.val
             current = current.next
         return num    
+    
+    
         
