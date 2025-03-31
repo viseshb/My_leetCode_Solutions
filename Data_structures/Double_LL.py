@@ -179,6 +179,21 @@ class DoublyLinkedList:
 
         self.length -= 1
         return temp 
+    
+    def swap_first_last(self):
+        if not self.head or not self.head.next:
+            return None
+        
+        first = self.head
+        temp = self.head
+
+        while temp.next:
+            temp = temp.next
+
+        first.value, temp.value = temp.value, first.value
+
+
+
       
 
 my_doubly_LL = DoublyLinkedList(7)
@@ -189,6 +204,10 @@ my_doubly_LL.printList()
 print("The value of the Node at index is:", my_doubly_LL.get(3))
 my_doubly_LL.set_value(2, 100)
 my_doubly_LL.printList()
+print("--------------------")
+my_doubly_LL.swap_first_last()
+my_doubly_LL.printList()
+
 
 # my_doubly_LL.printList()
 # print(my_doubly_LL.popFirst())
