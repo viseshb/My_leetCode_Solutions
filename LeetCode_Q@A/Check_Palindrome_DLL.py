@@ -37,46 +37,25 @@ class DoublyLinkedList:
         return True
 
     def is_palindrome(self):
+        if not self.head or  not self.head.next:
+            return False
         
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+        self.tail = self.head
+        while self.tail.next:
+            self.tail = self.tail.next
 
-        
-        if fast:  
-            slow = slow.next
-
-        
-        if slow:
-            slow.prev = None
-
-        
-        rev = self.reverseDLL(slow)
-
-        
         left = self.head
-        right = rev
-        while right:
+        right = self.tail
+
+        while left != right and left.prev !=right:
             if left.value != right.value:
                 return False
-            left = left.next
-            right = right.next
-        return True   
+            else:
+                left = left.next
+                right = right.prev
+        return True            
 
-    def reverseDLL(self, node):
-        
-        current = node
-        new_head = None
-        while current:
-            new_head = current  
-           
-            temp = current.prev
-            current.prev = current.next
-            current.next = temp
-            current = current.prev
-        return new_head
+
 
 
 # --- Testing the Implementation ---
