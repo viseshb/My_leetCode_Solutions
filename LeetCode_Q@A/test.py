@@ -22,8 +22,7 @@ class LinkedList:
         current = self.head
         while current.next:
             current = current.next
-        right = current.value
-        return right
+        return current.value
             
     def append(self,value):
         new_node = Node(value)
