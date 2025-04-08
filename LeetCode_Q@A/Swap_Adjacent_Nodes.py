@@ -1,3 +1,7 @@
+#24. Swap Nodes in Pairs
+#https://leetcode.com/problems/swap-nodes-in-pairs/description/?search=swap+ad&page=1
+
+
 class Node:
     def __init__(self,value):
         self.value = value
