@@ -3,4 +3,5 @@ git commands:
 
 git add . 
 git commit -m "Add new file" 
-git push --force origin Codes
+git push origin Codes --force 
+git push origin Files --force
