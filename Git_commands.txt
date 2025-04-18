@@ -6,5 +6,6 @@ git commit -m "Add new file"
 git push origin Codes --force 
 git push origin Files --force
 
-git checkout -b BranchName  #creates a local BranchName
-git push origin branchName # create a branch and pushes the source code to github 
+git checkout -b BranchName  #Creates a local BranchName
+git push origin branchName #Create a branch and pushes the source code to github 
+git push --set-upstream origin test #To push the current branch and set the remote as upstream,
